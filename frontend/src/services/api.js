@@ -1,0 +1,4 @@
+import client from './client';
+export const auth={login:(x)=>client.post('/auth/login',x),guest:()=>client.post('/auth/guest'),register:(x)=>client.post('/auth/register',x),me:()=>client.get('/users/me')};
+export const plants={list:()=>client.get('/plants'),create:(x)=>client.post('/plants',x),get:(id)=>client.get(`/plants/${id}`),uploadImage:(id,file)=>{const form=new FormData();form.append('file',file);return client.post(`/plants/${id}/image`,form)},soil:(id)=>client.get(`/plants/${id}/soil-records`),addSoil:(id,x)=>client.post(`/plants/${id}/soil-records`,x),growth:(id)=>client.get(`/plants/${id}/growth-records`),addGrowth:(id,x)=>client.post(`/plants/${id}/growth-records`,x)};
+export const dashboard={summary:()=>client.get('/dashboard/summary')}; export const models={list:()=>client.get('/models'),evaluations:()=>client.get('/evaluations')}; export const predictions={create:(x)=>client.post('/predictions',x),list:()=>client.get('/predictions')};

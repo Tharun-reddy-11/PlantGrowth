@@ -1,0 +1,1 @@
+-- Use database/schema.sql for first-time MySQL Workbench setup. This migration is intentionally mirrored by the application baseline process.

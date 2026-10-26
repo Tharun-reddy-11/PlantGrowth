@@ -1,0 +1,25 @@
+spring:
+  config:
+    # Enables a developer-only backend/.env file without committing secrets.
+    import: optional:file:.env[.properties]
+  datasource:
+    url: jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/${DB_NAME:plant_growth_forecasting}?useSSL=false&serverTimezone=UTC
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:Tharun@1126}
+  jpa:
+    hibernate:
+      # Creates missing tables for a first local run; production uses reviewed migrations.
+      ddl-auto: update
+    open-in-view: false
+  servlet:
+    multipart:
+      max-file-size: 10MB
+server:
+  port: ${SERVER_PORT:8080}
+app:
+  jwt-secret: ${JWT_SECRET:change-this-local-development-secret-at-least-32-characters}
+  ml-service-base-url: ${ML_SERVICE_BASE_URL:http://localhost:8000}
+  frontend-origin: ${FRONTEND_ORIGIN:http://localhost:5173}
+  guest-email: ${GUEST_EMAIL:guest@verdant.local}
+  upload-dir: ${UPLOAD_DIR:uploads}
+management.endpoints.web.exposure.include: health,info

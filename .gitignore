@@ -1,0 +1,14 @@
+.env
+**/.env
+**/node_modules/
+**/dist/
+**/target/
+**/__pycache__/
+**/.pytest_cache/
+**/.venv/
+ml-service/artifacts/*
+!ml-service/artifacts/.gitkeep
+datasets/processed/*
+!datasets/processed/.gitkeep
+datasets/reports/*.json
+*.log
